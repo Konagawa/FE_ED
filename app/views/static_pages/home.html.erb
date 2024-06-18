@@ -1,0 +1,11 @@
+<!--タイトルをページごとに設定-->
+<%= provide(:title, "ホーム") %>
+<body>
+  <h1>基本情報技術者試験フィードバックサイト FE_ED</h1>
+  <p>
+    基本情報技術者試験にむけた毎日の勉強、お疲れ様です！
+  </p>
+  <%= link_to "プライバシーポリシー",  static_pages_policy_path %>
+  <%= link_to "お問い合わせ",  static_pages_contact_path %>
+  <%= link_to "利用規約",  static_pages_help_path %>
+</body>
