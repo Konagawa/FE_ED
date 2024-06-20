@@ -2,18 +2,21 @@
 <html>
   <head>
     <!--provideで設定したシンボル(:title)が引数として代入される-->
-    <title><%= yield(:title) %> | 基本情報フィードバックサイトFE_FD</title>
+    <title><%= full_title(yield(:title)) %> | 基本情報フィードバックサイトFE_FD</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!--以下４つは、スタイルシートとJsをインクルード（含める）ためのもの-->
     <!--SCRF対策-->
     <%= csrf_meta_tags %>
     <!--XSS対策-->
     <%= csp_meta_tag %>
+    <!--application.cssを全てのメディアタイプで使用可能にする-->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>
