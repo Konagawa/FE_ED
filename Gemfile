@@ -4,38 +4,40 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.3"
 
 gem "rails",           "7.0.4.3"
-#sassをを使用するために用いられるgem,非推奨らしい
+
+gem 'bootstrap', '~> 5.3.0'
+# sassをを使用するために用いられるgem,非推奨らしい
 gem "sassc-rails",     "2.1.2"
-#アセットパイプライン機能の提供
+# アセットパイプライン機能の提供
 gem "sprockets-rails", "3.4.2"
-#バンドラーを使用せずにjavascriptモジュールを直接インポートできる
+# バンドラーを使用せずにjavascriptモジュールを直接インポートできる
 gem "importmap-rails", "1.1.5"
-#Hotwireの一部
+# Hotwireの一部
 gem "turbo-rails",     "1.4.0"
-#Hotwireの一部　DOM操作を任せられる
+# Hotwireの一部　DOM操作を任せられる
 gem "stimulus-rails",  "1.2.1"
-#JSON形式の文字列データを作成する
+# JSON形式の文字列データを作成する
 gem "jbuilder",        "2.11.5"
-#HTTPサーバー、これのおかげで　rails s　ができてる
+# HTTPサーバー、これのおかげで　rails s　ができてる
 gem "puma",            "5.6.8"
-#いれるだけでアプリを高速化してくれるやつ
+# いれるだけでアプリを高速化してくれるやつ
 gem "bootsnap",        "1.16.0", require: false
-#DB
+# DB
 gem "sqlite3",         "1.6.1"
 
 group :development, :test do
-  #名前の通り、デバッグに必要なやつ。
+  # 名前の通り、デバッグに必要なやつ。
   gem "debug",   "1.7.1", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  #View内でコンソールを立ち上げて変数とかの状態を見るデバッグ用ライブラリ
+  # View内でコンソールを立ち上げて変数とかの状態を見るデバッグ用ライブラリ
   gem "web-console",         "4.2.0"
-  #コード保管、関数の説明等インテリセンスが使える
+  # コード保管、関数の説明等インテリセンスが使える
   gem "solargraph",          "0.50.0"
-  #rails c　できるようにしてくれてる
+  # rails c　できるようにしてくれてる
   gem "irb",                 "1.10.0"
-  #irbの機能を拡張してくれるやつ
+  # irbの機能を拡張してくれるやつ
   gem "repl_type_completor", "0.1.2"
 end
 
