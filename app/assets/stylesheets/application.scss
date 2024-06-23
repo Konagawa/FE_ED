@@ -20,3 +20,26 @@ footer ul {
 footer ul ol {
   margin-top: 3px;
 }
+
+
+/* forms */
+
+input,
+textarea {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
