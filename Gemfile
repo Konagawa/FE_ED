@@ -23,7 +23,11 @@ gem "puma",            "5.6.8"
 # いれるだけでアプリを高速化してくれるやつ
 gem "bootsnap",        "1.16.0", require: false
 # DB
-gem "sqlite3",         "1.6.1"
+# gem "sqlite3",         "1.6.1"
+gem "pg"
+
+#パスワードハッシュ化
+gem "bcrypt"
 
 group :development, :test do
   # 名前の通り、デバッグに必要なやつ。
