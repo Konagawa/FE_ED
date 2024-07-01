@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   # メールアドレスをバリデーション前に全て小文字に変換するコールバック
   before_save { email.downcase! }
   #presence: trueは空打ち禁止用
