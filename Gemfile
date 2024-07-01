@@ -26,6 +26,7 @@ gem "pg"
 
 #パスワードハッシュ化
 gem "bcrypt"
+gem "kaminari"
 
 group :development, :test do
   # 名前の通り、デバッグに必要なやつ。
