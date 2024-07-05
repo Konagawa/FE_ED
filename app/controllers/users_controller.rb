@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     # 　Viewから与えられた引数をもとにUsersテーブルの該当レコードを検索し、変数に格納
     @user = User.find(params[:id])
-    @microposts = @user.microposts(params[:])
+    @microposts = @user.microposts(params[:id])
   end
 
   def new

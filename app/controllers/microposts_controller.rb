@@ -1,4 +1,6 @@
 class MicropostsController < ApplicationController
-  def index
-    @microposts =
+  def create
   end
+  def destroy
+  end
+end
