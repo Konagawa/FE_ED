@@ -1,8 +1,14 @@
 <!--タイトルをページごとに設定-->
 <%= provide(:title, "ホーム") %>
-<body>
-  <%= link_to "基本情報フィードバックサイトFE_FD", root_path, id: "logo" %>
-  <p>
-    基本情報技術者試験にむけた毎日の勉強、お疲れ様です！
-  </p>
-</body>
+<%= if logged_in? %>
+  
+
+
+
+<%= else %>
+  <body>
+    <%= link_to "基本情報フィードバックサイトFE_FD", root_path, id: "logo" %>
+    <p>
+      基本情報技術者試験にむけた毎日の勉強、お疲れ様です！
+    </p>
+  </body>
