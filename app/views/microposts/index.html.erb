@@ -9,10 +9,11 @@
             <div class="card-body">
               <h5 class="card-title"><%= micropost.user.name %></h5>
               <p class="card-text"><%= micropost.content %></p>
-              <a href="<%= post_path(micropost) %>" class="btn btn-primary">詳細を見る</a>
+              <a href="<%= micropost_path(micropost) %>" class="btn btn-primary">詳細を見る</a>
             </div>
           </div>
         </div>
       <% end %>
+      <%= paginate @posts %>
     </div>
   </div>

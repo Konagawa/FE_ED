@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
 
   def index
-    @posts = Micropost.all
+    @posts = Micropost.all.page(params[:page])
   end
 
   def new
@@ -18,7 +18,8 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @post = Micropost.find_by(params[:id])
+    @post = Micropost.find(params[:id])
+    debugger
   end
 
   def destroy
