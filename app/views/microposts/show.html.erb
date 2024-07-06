@@ -1,0 +1,14 @@
+<%= provide(:title, @post.user.name + "の投稿") %>
+
+<div class="container mt-5">
+  <h1 class="mb-4"><%= @post.user.name %>の投稿</h1>
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <div class="card-text">
+        <%= @post.content %>
+      </div>
+    </div>
+  </div>
+  <%= link_to '編集', edit_micropost_path(@post), class: 'btn btn-primary' %> |
+  <%= link_to '戻る', microposts_path, class: 'btn btn-secondary' %>
+</div>

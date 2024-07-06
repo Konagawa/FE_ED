@@ -1,0 +1,19 @@
+<%= provide(:title, "投稿一覧") %>
+
+  <div class="container mt-5">
+    <h1 class="mb-4">投稿一覧</h1>
+    <div class="row">
+        <% @posts.each do |micropost| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= micropost.user.name %></h5>
+              <p class="card-text"><%= micropost.content %></p>
+              <a href="<%= micropost_path(micropost) %>" class="btn btn-primary">詳細を見る</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate @posts %>
+    </div>
+  </div>
