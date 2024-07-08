@@ -9,6 +9,11 @@
       </div>
     </div>
   </div>
-  <%= link_to '編集', edit_micropost_path(@post), class: 'btn btn-primary' %> |
+  <% if current_user == @post.user %>
+    <%= link_to '編集', edit_micropost_path(@post), class: 'btn btn-primary' %>
+    <%= link_to "削除", @post, class: 'btn btn-danger' ,
+                              data: { "turbo-method": :delete,
+                              turbo_confirm: "本当に削除してよろしいですか?" } %> |
+  <% end %>
   <%= link_to '戻る', microposts_path, class: 'btn btn-secondary' %>
 </div>

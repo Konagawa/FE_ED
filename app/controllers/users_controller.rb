@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :corrent_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def show
     # 　Viewから与えられた引数をもとにUsersテーブルの該当レコードを検索し、変数に格納
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     #  多分ストロングパラメーター為に書いてるぽい、セキュリティかな
     @user = User.new(user_params)
     if @user.save
+      reset_session
+      log_in @user
       flash[:success] = 'ログインしました。'
       redirect_to @user
     else
@@ -37,7 +39,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "アカウントを削除しました。"
+    redirect_to root_url, status: :see_other
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
@@ -50,7 +59,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def corrent_user
+  def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url, status: :see_other) unless @user == current_user
   end
