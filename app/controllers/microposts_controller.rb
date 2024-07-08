@@ -1,4 +1,5 @@
 class MicropostsController < ApplicationController
+before_action :set_params, only: [:show, :edit, :destroy]
 
   def index
     @posts = Micropost.all.page(params[:page])
@@ -18,14 +19,19 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @post = Micropost.find(params[:id])
-    debugger
+  end
+
+  def edit
   end
 
   def destroy
   end
 
   private
+
+  def set_params
+    @post = Micropost.find(params[:id])
+  end
 
   def micropost_params
     params.require(:micropost).permit(:content)
