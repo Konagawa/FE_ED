@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-before_action :set_params, only: [:show, :edit, :destroy]
+before_action :set_params, only: [:show, :edit, :destroy, :update]
 
   def index
     @posts = Micropost.all.page(params[:page])
@@ -22,6 +22,15 @@ before_action :set_params, only: [:show, :edit, :destroy]
   end
 
   def edit
+  end
+
+  def update
+    if @post.update(micropost_params)
+      flash[:notice] = "変更を保存しました。"
+      redirect_to @post
+    else
+      render 'edit', status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.3"
 gem "rails",           "7.0.4.3"
 gem 'bootstrap', '~> 5.3.0'
+gem 'font-awesome-sass'
 # sassをを使用するために用いられるgem,非推奨らしい
 gem "sassc-rails",     "2.1.2"
 # アセットパイプライン機能の提供

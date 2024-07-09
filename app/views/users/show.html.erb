@@ -20,11 +20,9 @@
         <div class="card-footer">
           <%= link_to '編集', edit_user_path(@user), class: 'btn btn-warning' if current_user == @user %>
           <%= link_to '戻る', microposts_path, class: 'btn btn-secondary' %>
-          <% if current_user %>
             | <%= link_to "削除", @user, class: 'btn btn-danger' ,
                                         data: { "turbo-method": :delete,
-                                        turbo_confirm: "本当に削除してよろしいですか?" } %>
-          <% end %>
+                                        turbo_confirm: "本当に削除してよろしいですか?" }  if current_user == @user%>
 
         </div>
       </div>
