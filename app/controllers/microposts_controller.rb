@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
 before_action :set_params, only: [:show, :edit, :destroy, :update]
 
   def index
-    @posts = Micropost.all.page(params[:page])
+    @posts = Micropost.page(params[:page])
   end
 
   def new

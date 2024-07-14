@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Exit on error
+set -e
+
+# Install dependencies
+bundle check || bundle install
+yarn install --check-files
+
+# Run development servers
+bin/rails server -b 0.0.0.0

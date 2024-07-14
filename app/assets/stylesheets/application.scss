@@ -1,5 +1,11 @@
 @import "bootstrap";
 @import "font-awesome";
+
+ label.required:after {
+   content: " *";
+   color: red;
+ }
+
 /* header */
 #top-header{
   position: sticky;

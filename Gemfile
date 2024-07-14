@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.3"
 gem "rails",           "7.0.4.3"
 gem 'bootstrap', '~> 5.3.0'
+gem "bootstrap_form"
+gem "jsbundling-rails"
+gem "cssbundling-rails"
 gem 'font-awesome-sass'
 # sassをを使用するために用いられるgem,非推奨らしい
 gem "sassc-rails",     "2.1.2"
@@ -28,6 +31,7 @@ gem "pg"
 #パスワードハッシュ化
 gem "bcrypt"
 gem "kaminari"
+gem "ransack"
 
 group :development, :test do
   # 名前の通り、デバッグに必要なやつ。

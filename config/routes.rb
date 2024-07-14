@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
   get "/post",       to: "microposts#show"
+  get "search" => "searches#search"
 
   resources :users
   resources :microposts

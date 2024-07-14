@@ -1,18 +1,13 @@
-    <%= form_with(model: @user) do |f| %>
+    <%= bootstrap_form_with(model: @user) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :name, "名前" %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, label: "名前" %>
 
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, label: "メールアドレス" %>
 
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, label: "パスワード" %>
 
-      <%= f.label :password_confirmation, "パスワード再入力" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, label: "パスワード再確認" %>
 
-      <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+      <%= f.primary("登録") %>
     <% end %>
-
