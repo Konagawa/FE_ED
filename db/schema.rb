@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_09_093705) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_14_161004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_09_093705) do
     t.bigint "micropost_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "micropost_id"], name: "index_favorites_on_user_id_and_micropost_id", unique: true
   end
 
   create_table "microposts", force: :cascade do |t|
@@ -39,5 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_09_093705) do
     t.boolean "admin", default: false
   end
 
+  add_foreign_key "favorites", "microposts"
+  add_foreign_key "favorites", "users"
   add_foreign_key "microposts", "users"
 end

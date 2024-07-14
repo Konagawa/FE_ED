@@ -9,4 +9,8 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def turbo_stream_flash
+    turbo_stream.append "flashes", partial: "flash"
+  end
 end

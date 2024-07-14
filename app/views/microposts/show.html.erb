@@ -14,9 +14,7 @@
     <%= link_to "削除", @post, class: 'btn btn-danger' ,
                               data: { "turbo-method": :delete,
                               turbo_confirm: "本当に削除してよろしいですか?" } %>
-    <div id="micropost_<%= @post.id %>_favorite">
-      <%= turbo_stream.update "post_#{@post.id}", partial: 'microposts/favorite', locals: { post: @post } %>
-      </div>
+    <%= render 'favorites/favorite', post: @post %>
   <% end %>
   <%= link_to '戻る', microposts_path, class: 'btn btn-secondary' %>
 </div>

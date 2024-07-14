@@ -1,30 +1,20 @@
 class FavoritesController < ApplicationController
 
-  def create
-    @post = Micropost.find(params[:micropost_id])
-    favorite = current_user.favorites.build(micropost_id: @post.id)
+   def create
+    @micropost = Micropost.find(params[:micropost_id])
+    current_user.favorite(@micropost)
     respond_to do |format|
-      if favorite.save
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.update("post_#{@post.id}", partial: 'microposts/favorite', locals: { post: @post })
-        end
-      else
-        format.html { redirect_to @post, alert: 'お気に入り登録に失敗しました'}
-      end
+      format.turbo_stream
+      format.html { redirect_to @micropost }
     end
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(micropost: params[:micropost_id])
-    @post = Micropost.find(params[:micropost_id])
+    @micropost = Micropost.find(params[:micropost_id])
+    current_user.unfavorite(@micropost)
     respond_to do |format|
-      if favorite.destroy
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.update("post_#{@post.id}", partial: 'microposts/favorite', locals: { post: @post })
-        end
-      else
-        format.html { redirect_to @post, alert: 'お気に入り解除に失敗しました'}
-      end
+      format.turbo_stream
+      format.html { redirect_to @micropost }
     end
   end
 end

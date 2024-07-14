@@ -34,6 +34,10 @@ before_action :set_params, only: [:show, :edit, :destroy, :update]
   end
 
   def destroy
+    @post.destroy
+    flash.notice = "投稿を削除しました。"
+    redirect_to microposts_url
+
   end
 
   private

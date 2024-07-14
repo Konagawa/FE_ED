@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :microposts, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_microposts, through: :favorites, source: :micropost
   # メールアドレスをバリデーション前に全て小文字に変換するコールバック
   before_save { email.downcase! }
   #presence: trueは空打ち禁止用
@@ -11,5 +12,17 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+  def favorite(micropost)
+    favorites.create(micropost: micropost) unless favorite?(micropost)
+  end
+
+  def unfavorite(micropost)
+    favorites.find_by(micropost: micropost)&.destroy
+  end
+
+  def favorite?(micropost)
+    favorite_microposts.include?(micropost)
+  end
+
 end
