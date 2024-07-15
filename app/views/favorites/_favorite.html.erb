@@ -1,12 +1,10 @@
-<%= turbo_frame_tag dom_id(post, :favorite) do %>
-  <% if post.favorited_by?(current_user) %>
-    <%= button_to micropost_favorites_path(post), method: :delete, form: { data: { turbo_frame: dom_id(post, :favorite) } } do %>
-      <i class="fas fa-heart text-lg" aria-hidden="true" style="color: red;"></i>
-      <%= post.favorites.count %>
-    <% end %>
-  <% else %>
-    <%= button_to micropost_favorites_path(post), method: :post, form: { data: { turbo_frame: dom_id(post, :favorite) } } do %>
-      <i class="fas fa-heart text-lg" aria-hidden="true"></i>
+<% if logged_in? %>
+  <%= turbo_frame_tag dom_id(post, :favorite) do %>
+    <% favorited = post.favorited_by?(current_user) %>
+    <% method = favorited ? :delete : :post %>
+    <% path = micropost_favorites_path(post) %>
+    <%= button_to path, method: method, data: { turbo_frame: dom_id(post, :favorite) }, class: "btn btn-light" do %>
+      <i class="fas fa-heart text-lg" aria-hidden="true" style="<%= 'color: red;' if favorited %>"></i>
       <%= post.favorites.count %>
     <% end %>
   <% end %>
