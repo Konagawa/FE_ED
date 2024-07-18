@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
 before_action :set_params, only: [:show, :edit, :destroy, :update]
-
+before_action :logged_in_user, only: [:new, :edit, :update, :destroy]
   def index
     @posts = Micropost.page(params[:page])
   end

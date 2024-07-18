@@ -74,3 +74,50 @@ centered-image {
 .rounded-circle {
   border-radius: 50%;
 }
+
+.btn-purple {
+  background-color: #5e27ff;
+  border-color: #5e27ff;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #3104b6;
+  border-color: #3104b6;
+  color: white;
+}
+
+.bg-image {
+  background-image: image-url('sky.jpeg');
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  border-radius: 10px;
+  color: white;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.4);
+  /* 背景を半透明にして読みやすくする */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.diagonal-background {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+}
+
+.diagonal-background::before {
+  content: '';
+  position: absolute;
+  top: 160px;
+  left: 500px;
+  width: 125%;
+  height: 800%;
+  background: linear-gradient(100deg, #3104b6 100%, #3104b6 100%, #3104b6 100%, #3104b6 100%);
+  z-index: -1;
+  transform: skewY(-40deg);
+}

@@ -1,19 +1,38 @@
 <% provide(:title, "ログイン") %>
-<h1>ログイン</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_with(url: login_path, scope: :session) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>アカウントをお持ちでないですか? <%= link_to "新規登録はこちら", signup_path %></p>
+<section class="position-relative py-5 overflow-hidden">
+  <div class="d-none d-md-block position-absolute top-0 start-0 bg-primary w-100 h-100"></div>
+  <div class="d-md-none position-absolute top-0 start-0 bg-primary w-100 h-100"></div>
+  <div class="container position-relative mx-auto">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-8 col-lg-5 mb-5">
+        <div>
+          <h2 class="display-5 fw-bold mb-4 text-white">Lorem ipsum dolor sit amet consectutar domor at Elis</h2>
+          <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.ペレンテスク・マッサ・ニブ、プルビナー・ヴィタエ・アリケット・ネック、アカムサン・アリケット・オルチ。</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-10 col-lg-5 ms-auto">
+        <div class="p-5 bg-light rounded text-center">
+            <span class="text-muted">サインイン</span>
+            <h3 class="fw-bold mb-5">コミュニティに参加する</h3>
+            <%= form_with(url: login_path, scope: :session) do |f| %>
+              <%= f.label :email, "メールアドレス" %>
+              <%= f.email_field :email, class: 'form-control mb-2', placeholder: "@example.com" %>
+              <%= f.label :password, "パスワード" %>
+              <%= f.password_field :password, class: 'form-control mb-2', placeholder: "パスワード" %>
+              <%= f.submit "始める", class: "btn btn-purple py-2 w-100 mb-4" %>
+            <% end %>
+            <a class="link-secondary d-inline-block mb-4" href="#"><small>パスワードをお忘れですか？</small></a>
+            <%= link_to "新規登録はこちら", signup_path, class: "link-secondary d-inline-block mb-4" %>
+            <a class="d-flex justify-content-center align-items-center text-muted mb-2 py-2 bg-white rounded w-100 text-decoration-none" href="#">
+              <img class="img-fluid" src="bootstrap5-plain-assets/socials/facebook.svg" alt="">
+              <span class="text-muted">Googleでサインイン</span>
+            </a>
+            <a class="d-flex justify-content-center align-items-center text-muted mb-2 py-2 bg-white rounded w-100 text-decoration-none" href="#">
+              <img class="img-fluid" src="bootstrap5-plain-assets/socials/twitter.svg" alt="">
+              <span class="text-muted">GitHubでログイン</span>
+            </a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>

@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include UsersHelper
+
   before_action :search
 
     def search

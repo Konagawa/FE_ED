@@ -10,7 +10,6 @@
     </div>
   </div>
 
-  #投稿詳細ページのボタン一式
   <div class="btn-group" role="group" aria-label="Button group">
     <% if current_user == @post.user %>
       <%= link_to '編集', edit_micropost_path, class: 'btn btn-primary' %>
