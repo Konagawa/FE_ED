@@ -1,5 +1,5 @@
-<%= provide(:title, '新規登録')%>
-<section class="position-relative py-5 my-5 overflow-hidden">
+<%= provide(:title, '新規登録') %>
+<section class="position-relative py-5 my-5 overflow-hidden bg-new">
   <div class="d-none d-md-block position-absolute top-0 start-0 bg-primary w-100 h-100"></div>
   <div class="d-md-none position-absolute top-0 start-0 bg-primary w-100 h-100"></div>
   <div class="container position-relative mx-auto">
@@ -22,11 +22,10 @@
               <%= f.email_field :email, class: 'form-control mb-2', placeholder: "@example.com" %>
               <%= f.label :password, "パスワード" %>
               <%= f.password_field :password, class: 'form-control mb-2', placeholder: "パスワード" %>
-              <%= f.label :password_confirmation, "パスワード確認用" %>
-              <%= f.password_field :password_confirmation, class: 'form-control mb-2', placeholder: "パスワード確認用" %>
+              <%= f.label :password_confirmation, "パスワード再確認" %>
+              <%= f.password_field :password_confirmation, class: 'form-control mb-2', placeholder: "パスワード" %>
               <%= f.submit "始める", class: "btn btn-purple py-2 w-100 mb-4" %>
             <% end %>
-            <%= link_to "アカウントをお持ちですか？", login_path, class: "link-secondary d-inline-block mb-4" %>
         </div>
       </div>
     </div>

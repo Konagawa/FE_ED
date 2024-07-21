@@ -121,3 +121,34 @@ centered-image {
   z-index: -1;
   transform: skewY(-40deg);
 }
+
+
+/* app/assets/stylesheets/application.css */
+.alert-dismissible {
+  transition: opacity 0.15s linear;
+}
+
+.alert-dismissible.hide {
+  opacity: 0;
+}
+
+.flash-container {
+  position: fixed;
+  top: 100px;
+  /* 画面上部からの距離 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  /* 高い値を設定して最前面に表示 */
+  width: 80%;
+  /* コンテナの幅を調整 */
+  max-width: 600px;
+  /* 最大幅を設定 */
+}
+
+.flash-message {
+  margin-bottom: 10px;
+  /* メッセージ間の余白 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* オプション: 影をつけて目立たせる */
+}
