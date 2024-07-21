@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/post",       to: "microposts#show"
   get "search" => "searches#search"
 
-  resources :users
+  resources :users, param: :id
   resources :microposts
   resources :microposts do
     resource :favorites, only: [:create, :destroy]

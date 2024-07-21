@@ -14,6 +14,7 @@ before_action :logged_in_user, only: [:new, :edit, :update, :destroy]
     if @post.save
       redirect_to @post, notice: '投稿が作成されました。'
     else
+      flash.now[:alert] = '投稿に失敗しました。'
       render :new, status: :unprocessable_entity
     end
   end

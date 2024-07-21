@@ -1,14 +1,12 @@
 module SessionsHelper
   #rails定義メソッドのsessionを使ってcookiesに暗号化したユーザーIDが作成される
   def log_in(user)
-    session[:user_id] = user.id
+    session[:user_id_digest] = user.id_digest
   end
 
     # 現在ログイン中のユーザーを返す（いる場合）
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
+    @current_user ||= User.find_by(id_digest: session[:user_id]) if session[:user_id]
   end
 
   #  ログインしていればtrue,その他ならfalseを返す。

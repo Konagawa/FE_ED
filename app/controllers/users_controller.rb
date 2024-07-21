@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     # 　Viewから与えられた引数をもとにUsersテーブルの該当レコードを検索し、変数に格納
-    @user = User.find(params[:id])
+    @user = User.find_by!(id_digest: params[:id])
   end
 
   def new
@@ -26,11 +26,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find_by_id_digest(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_id_digest(params[:id])
     if @user.update(user_params)
       flash[:success] = "ユーザー情報を更新しました"
       redirect_to @user
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by_id_digest(params[:id]).destroy
     flash[:success] = "アカウントを削除しました。"
     redirect_to root_url, status: :see_other
   end
