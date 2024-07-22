@@ -16,11 +16,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
     <%= render "layouts/header" %>
-    <div id="flash">"
-      <%= render 'application/flash' %>
-    <div>
+    <main>
+      <div id="flash">
+        <%= render 'application/flash' %>
+      <div>
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>

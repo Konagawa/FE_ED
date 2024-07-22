@@ -1,8 +1,8 @@
 <%= provide(:title, "ホーム") %>
 
 <div class="container text-center mt-5">
-<p class="fs-1">FE_EDでこれまでの記録を残そう</p>
-  <%= render "layouts/carousel" %>
+<%= image_tag 'home.png', class: 'img-fluid rounded', alt: 'Description of image' %>
+  <!--<%= render "layouts/carousel" %>-->
 
   <h5 class="my-4">FE_EDってどんなサービス？</h5>
   <p class="mb-4">
@@ -13,30 +13,23 @@
   <div class="d-lg-flex align-items-center justify-content-center mb-5">
     <div class="d-flex flex-column align-items-center mb-3 mb-lg-0 me-3">
       <%= image_tag "book_gijutsusyo_web.png", alt: "", width: "200", height: "200", class: "rounded-circle mx-auto" %>
-      <p class="mt-2">優秀な教材、<br>学習サイトがまるわかり!</p>
+      <p class="mt-2">優秀な教材<br>学習サイトを共有</p>
     </div>
     <div class="d-flex flex-column align-items-center mb-3 mb-lg-0 me-3">
       <%= image_tag "computer_tokui_boy.png", alt: "", width: "200", height: "200", class: "rounded-circle mx-auto" %>
-      <p class="mt-2">どうやって学習しようか、、<br>といったスタートの悩みを一瞬で解決</p>
+      <p class="mt-2">これまで受講してきた<br>仲間の経験談を学習に活かせる</p>
     </div>
     <div class="d-flex flex-column align-items-center mb-3 mb-lg-0 me-3">
       <%= image_tag "juken_goukakuhappyou_happy.png", alt: "", width: "200", height: "200", class: "rounded-circle mx-auto" %>
-      <p class="mt-2">最短合格、<br>資格取得でなりたい自分へ！</p>
+      <p class="mt-2">最短合格<br>資格取得でエンジニアを目指そう！</p>
     </div>
   </div>
 
-  <h5 class="my-4">FE_EDを始めよう！</h5>
+  <h5 class="my-4">FE_EDを始める</h5>
 
   <div class="mb-4">
     <%= link_to "新規登録", signup_path, class: "btn btn-success me-2" %>
     <%= link_to "ログイン", login_path, class: "btn btn-secondary" %>
   </div>
 
-  <p class="fw-medium mb-4 text-black">
-    卒業生の方へ<br>
-    入校初日から、もっとこうしておけばよかったと、後になって後悔したことはありませんか？<br>
-    FE_EDでは、そんな後悔を未来の受講生に伝えることができます。<br>
-    これまでの経験が、誰かの役に立つかもしれません。<br>
-    ぜひ、あなたの経験を共有してください。
-  </p>
 </div>

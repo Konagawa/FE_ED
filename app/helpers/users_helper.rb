@@ -10,7 +10,7 @@ module UsersHelper
   end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by_id_digest(params[:id])
     redirect_to(root_url, status: :see_other) unless @user == current_user
   end
 
