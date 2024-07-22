@@ -392,6 +392,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (= 4.2.0)
   webdrivers (= 5.2.0)
+  bundle lock --add-platform x86_64-linux
 
 RUBY VERSION
    ruby 3.2.3p157
