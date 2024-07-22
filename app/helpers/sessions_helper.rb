@@ -6,7 +6,7 @@ module SessionsHelper
 
     # 現在ログイン中のユーザーを返す（いる場合）
   def current_user
-    @current_user ||= User.find_by(id_digest: session[:user_id]) if session[:user_id]
+    @current_user ||= User.find_by(id_digest: session[:user_id_digest]) if session[:user_id_digest]
   end
 
   #  ログインしていればtrue,その他ならfalseを返す。

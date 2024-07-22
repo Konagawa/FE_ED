@@ -17,8 +17,9 @@
 
 /* footer */
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
   border-top: 1px solid #a09c9c;
   color: #777;
 }
@@ -34,6 +35,12 @@ footer ul {
 
 footer ul ol {
   margin-top: 3px;
+}
+
+
+main {
+  margin-bottom: 30px;
+  /* フッターの高さに応じて調整 */
 }
 
 

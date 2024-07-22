@@ -39,5 +39,5 @@ class User < ApplicationRecord
   def set_id_digest
     self.id_digest = SecureRandom.urlsafe_base64 while id_digest.nil? || User.exists?(id_digest: id_digest)
   end
-
+    
 end
